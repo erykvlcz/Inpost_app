@@ -25,6 +25,14 @@ public class Paczkomat {
         return new Paczkomat(name, address);
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
     @Override
     public String toString() {
         return "Paczkomat{" +
