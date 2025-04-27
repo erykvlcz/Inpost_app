@@ -16,7 +16,7 @@ public class Parcel {
     }
 
     public static Parcel createParcel(Size size, Paczkomat shippingPaczkomat, Paczkomat deliveryPaczkomat) {
-        String code = generatePackageCode() + shippingPaczkomat.getName() + deliveryPaczkomat.getAddress();
+        String code = generatePackageCode() + shippingPaczkomat.getName().substring(0,2) + deliveryPaczkomat.getAddress().substring(0,2);
 
         return new Parcel(code, size, shippingPaczkomat, deliveryPaczkomat);
     }
@@ -25,5 +25,15 @@ public class Parcel {
         Random random = new Random();
         int code = 100000 + random.nextInt(900000); // losuje liczbę od 100000 do 999999
         return String.valueOf(code);
+    }
+
+    @Override
+    public String toString() {
+        return "Parcel{" +
+                "code='" + code + '\'' +
+                ", size=" + size +
+                ", shippingPaczkomat=" + shippingPaczkomat +
+                ", deliveryPaczkomat=" + deliveryPaczkomat +
+                '}';
     }
 }
